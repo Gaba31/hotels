@@ -11,9 +11,11 @@
 // const jsonStringfy = JSON.stringify(objectToConvert);
 // console.log(jsonStringfy);
 
+const PORT = process.env.PORT || 3000;
 const express = require('express')
 const app = express();
 const db = require('./db');
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -44,6 +46,7 @@ app.use('/menu',MenuRoutes);
 const PersonRoutes = require('./routes/PersonRoutes')
 app.use('/person',PersonRoutes);
 
-app.listen(3000,()=>{
+
+app.listen(PORT,()=>{
     console.log("Sever Started");
 })
